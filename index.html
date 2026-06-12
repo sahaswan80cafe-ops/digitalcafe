@@ -431,13 +431,31 @@ footer a { color: var(--accent2); text-decoration: none; }
 </style>
 </head>
 <body>
+ <script>
+  // create anime spark particles
+  for(let i = 0; i < 40; i++) {
+    let spark = document.createElement("div");
+    spark.classList.add("spark");
+    spark.style.left = Math.random() * 100 + "vw";
+    spark.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    document.body.appendChild(spark);
+  }
+</script>
+
+</body>
 
 <!-- ===== NAVIGATION ===== -->
 <nav id="mainNav">
-  <div class="nav-logo">
-    <div class="logo-fallback">SC</div>
-    <div class="nav-title">Sahaswan Cyber Café <span>Digital Services Hub</span></div>
-  </div>
+ <div class="nav-logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+         alt="Google Logo"
+         style="height:40px;width:auto;border-radius:0;">
+
+    <div class="nav-title">
+        Sahaswan Cyber Café
+        <span>Digital Services Hub</span>
+    </div>
+</div>
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
@@ -1804,7 +1822,11 @@ function doAdminLogin() {
     showAlert('adminLoginAlert','Incorrect username or password','error');
   }
 }
-
+STATE.adminCreds = {
+  username: "admin",
+  password: "123456",
+  secretCode: "CYBER-RESET-0001"
+};
 function showResetPass() {
   document.getElementById('adminLoginForm').style.display='none';
   document.getElementById('adminResetForm').style.display='block';
